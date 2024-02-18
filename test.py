@@ -100,7 +100,7 @@ def main():
                 
 
                 # Load data from the directory
-                documents = reader.load_data()
+                documents = SimpleDirectoryReader(reader).load_data()
                 index = VectorStoreIndex.from_documents(documents,
                                                                 service_context=service_context) #This line creates an index from the loaded documents.
                 query_engine = index.as_query_engine() #This line converts the index to a query engine.
