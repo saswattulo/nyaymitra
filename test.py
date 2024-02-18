@@ -43,8 +43,8 @@ def read_pdf_from_directory(directory):
             with open(filepath, 'rb') as file:
                 reader = PyPDF2.PdfReader(file)
                 text = ''
-                for page in range(reader.numPages):
-                    text += reader.getPage(page).extractText()
+                for page in reader.pages:
+                    text += page.extract_text()
                 pdf_texts.append(text)
     return pdf_texts
 
