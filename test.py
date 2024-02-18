@@ -61,8 +61,8 @@ if st.button('Start'):
     with st.spinner('Starting bot...'):
         #pdf_texts = read_pdf_from_directory(pdf_directory)
 
-        if pdf_texts:
-            st.success(f"Processed {len(pdf_texts)} PDF file(s) from the directory.")
+        #if pdf_texts:
+            #st.success(f"Processed {len(pdf_texts)} PDF file(s) from the directory.")
             if "conversation" not in st.session_state:
                 st.session_state.conversation = None
 
@@ -92,7 +92,7 @@ if st.button('Start'):
 
             set_global_service_context(service_context)
 
-            reader = SimpleDirectoryReader("Z:\exp\env_chat_bot")
+            #reader = SimpleDirectoryReader("Z:\exp\env_chat_bot")
             # Get the current directory
             reader = os.path.dirname(os.path.abspath(__file__))
 
