@@ -39,7 +39,7 @@ def create_datastax_connection():
     return astra_session
 
 # Function to read PDF files from a directory
-'''def read_pdf_from_directory(directory):
+def read_pdf_from_directory(directory):
     pdf_texts = []
     for filename in os.listdir(directory):
         if filename.endswith('.pdf'):
@@ -50,19 +50,19 @@ def create_datastax_connection():
                 for page in reader.pages:
                     text += page.extract_text()
                 pdf_texts.append(text)
-    return pdf_texts'''
+    return pdf_texts
 
 # Define the local directory containing PDF files
-#pdf_directory = "Z:\exp\env_chat_bot"
+
+pdf_directory = os.path.dirname(os.path.abspath(__file__))
 
 st.subheader('Processing PDF Files from Local Directory')
-
 if st.button('Start'):
     with st.spinner('Starting bot...'):
-        #pdf_texts = read_pdf_from_directory(pdf_directory)
+        pdf_texts = read_pdf_from_directory(pdf_directory)
 
-        #if pdf_texts:
-            #st.success(f"Processed {len(pdf_texts)} PDF file(s) from the directory.")
+        if pdf_texts:
+            st.success(f"Processed {len(pdf_texts)} PDF file(s) from the directory.")
             if "conversation" not in st.session_state:
                 st.session_state.conversation = None
 
@@ -95,6 +95,7 @@ if st.button('Start'):
             #reader = SimpleDirectoryReader("Z:\exp\env_chat_bot")
             # Get the current directory
             reader = os.path.dirname(os.path.abspath(__file__))
+            
 
             # Load data from the directory
             documents = reader.load_data()
