@@ -63,8 +63,12 @@ if st.button('Start'):
 
             session = create_datastax_connection()
 
-            llm = None
-            embedding = None
+            llm = GradientBaseModelLLM(base_model_slug="llama2-7b-chat", max_tokens=400)
+
+            embed_model = GradientEmbedding(
+            gradient_access_token = os.environ["GRADIENT_ACCESS_TOKEN"],
+            gradient_workspace_id = os.environ["GRADIENT_WORKSPACE_ID"],
+            gradient_model_slug="bge-large")
 
             def initialize_llm_and_embedding():
                 global llm, embedding
