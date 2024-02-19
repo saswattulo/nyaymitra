@@ -73,7 +73,7 @@ def main():
         st.subheader('Start your chat here')
         if st.button('Process'):
             with st.spinner('Processing'):
-                reader = 'Z:\exp\env_chat_bot\data'
+                reader = 'data'
                 
                 documents = SimpleDirectoryReader(reader).load_data()
                 index = VectorStoreIndex.from_documents(documents,
